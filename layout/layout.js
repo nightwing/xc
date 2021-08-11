@@ -1,7 +1,7 @@
 var dom = require("ace/lib/dom");
 var event = require("ace/lib/event");
 var lib = require("layout/lib");
-var HashHandler = require("ace/keyboard/hash_handler").HashHandler;
+var {HashHandler} = require("ace/keyboard/hash_handler");
 var keyUtil = require("ace/lib/keys");
 
 dom.importCssString(require("ace/requirejs/text!layout/styles/layout.css"), "layout.css");
@@ -151,19 +151,8 @@ class SearchManager {
         this.mainBox = mainBox;
     }
 
-    addTransitioningToElement(element) {
-        Box.enableAnimation()
-        // window.addEventListener('transitionend', function x(e) {
-        // console.log(e)
-        // })
-        element.addEventListener('transitionend', function x() {
-            element.removeEventListener('transitionend', x);
-            Box.disableAnimation()
-        });
-    }
-
     animateBox(box) {
-        this.addTransitioningToElement(box.element);
+        Box.animate(box.element);
     }
 
     openFindBar() {

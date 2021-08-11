@@ -434,36 +434,21 @@ class Accordion {
     }
 
     toggleShowHide() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = !this.hidden;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     hide() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = true;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     show() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = false;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     remove() {

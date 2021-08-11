@@ -235,18 +235,8 @@ class SearchManager {
     constructor() {
         this.mainBox = mainBox;
     }
-    addTransitioningToElement(element) {
-        Box.enableAnimation()
-        // window.addEventListener('transitionend', function x(e) {
-        // console.log(e)
-        // })
-        element.addEventListener('transitionend', function x() {
-            element.removeEventListener('transitionend', x);
-            Box.disableAnimation()
-        });
-    }
     animateBox(box) {
-        this.addTransitioningToElement(box.element);
+        Box.animate(box.element);
     }
     openFindBar() {
         this.animateBox(this.mainBox);

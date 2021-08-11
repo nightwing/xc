@@ -200,7 +200,7 @@ var toggleBarMouseDown = function(e, accordionConstructor) {
     var onMouseUp = function(e) {
         if (!isDragging)
             return;
-
+        e.preventDefault();
         finishDragging();
     };
 
@@ -226,13 +226,7 @@ var toggleBarOnClick = function(e) {
     }
     accordionBox.recalculateChildrenSizes(index);
 
-    Box.enableAnimation();
-
-    var node = accordionBox.element;
-    node.addEventListener('transitionend', function handler() {
-        node.removeEventListener('transitionend', handler);
-        Box.disableAnimation();
-    });
+    Box.animate(accordionBox.element);
 
     accordionBox.resize();
 };

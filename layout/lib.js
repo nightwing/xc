@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+
 exports.findHost = function(el, constructor) {
     while (el) {
         if (el.$host && (!constructor || el.$host.constructor === constructor)) return el.$host;

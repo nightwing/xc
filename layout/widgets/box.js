@@ -24,6 +24,22 @@ class Box {
         document.documentElement.classList.remove("animateBoxes");
     }
 
+    static animate(node, timeout, callback) {
+        if (!timeout) timeout = 200;
+        if (Box.animationTimer) clearTimeout(Bax.animationTimer)
+        Box.animationTarget = node;
+            
+        Box.enableAnimation();
+        function onTransitionEnd() {
+            node.removeEventListener('transitionend', onTransitionEnd);
+            if (Box.animationTarget == node)
+                Box.disableAnimation();
+            if (callback) callback()
+        }
+        node.addEventListener('transitionend', onTransitionEnd);
+        setTimeout(onTransitionEnd, timeout);
+    }
+
     static setGlobalCursor(value) {
         if (value)
             document.documentElement.classList.add("inheritCursor");
@@ -195,6 +211,8 @@ class Box {
         if (this.toolBars[position] && this.toolBars[position].element) {
             this.toolBars[position].element.remove();
         }
+
+        if (!bar.size) bar.size = 27;
 
         bar.position = position;
         this.padding[position] = bar.size;
@@ -459,13 +477,7 @@ class Box {
         if (disableAnimation) {
             finishRestore();
         } else {
-            Box.enableAnimation();
-
-            node.addEventListener('transitionend', function handler(l) {
-                Box.disableAnimation();
-                node.removeEventListener('transitionend', handler);
-                finishRestore();
-            });
+            Box.animate(node, null, finishRestore);
         }
 
         var parentRect = node.parentNode.getBoundingClientRect();
@@ -503,12 +515,7 @@ class Box {
         node.getBoundingClientRect();
 
         if (!disableAnimation) {
-            Box.enableAnimation();
-
-            node.addEventListener('transitionend', function handler() {
-                node.removeEventListener('transitionend', handler);
-                Box.disableAnimation();
-            });
+            Box.animate(node);
         }
 
         this.setBox(...this.box);
@@ -535,36 +542,21 @@ class Box {
     }
 
     toggleShowHide() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = !this.hidden;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     hide() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = true;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     show() {
-        Box.enableAnimation();
+        Box.animate(this.element);
         this.hidden = false;
         this.parent.resize();
-        var node = this.element;
-        node.addEventListener('transitionend', function handler() {
-            node.removeEventListener('transitionend', handler);
-            Box.disableAnimation();
-        });
     }
 
     /**
