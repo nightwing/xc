@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 /**
  * Interface for classes that represent a widgets.
  *
@@ -33,5 +32,3 @@ class PanelLocation {
      */
     box
 }
-
-})

@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 
 dom.importCssString(require("ace/requirejs/text!layout/styles/button.css"), "button.css");
@@ -57,4 +56,3 @@ class Button {
 }
 
 exports.Button = Button;
-});

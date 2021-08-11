@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var lib = require("layout/lib");
 var event = require("ace/lib/event");
@@ -501,4 +500,3 @@ class Accordion {
 };
 
 exports.Accordion = Accordion;
-});

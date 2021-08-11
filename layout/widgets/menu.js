@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var HashHandler = require("ace/keyboard/hash_handler").HashHandler;
 var event = require("ace/lib/event");
@@ -1267,5 +1266,3 @@ class MenuToolBar {
 
 exports.MenuManager = MenuManager;
 exports.MenuToolBar = MenuToolBar;
-
-});

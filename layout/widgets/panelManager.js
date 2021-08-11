@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var lib = require("layout/lib");
 
@@ -122,4 +121,3 @@ class PanelManager {
 }
 
 exports.PanelManager = PanelManager;
-});

@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 
 dom.importCssString(require("ace/requirejs/text!layout/styles/switcher.css"), "switcher.css");
@@ -47,4 +46,3 @@ class Switcher {
 }
 
 exports.Switcher = Switcher;
-});

@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var lib = require("layout/lib");
 var event = require("ace/lib/event");
@@ -758,4 +757,3 @@ class Pane extends Box {
 
 exports.Box = Box;
 exports.Pane = Pane;
-});

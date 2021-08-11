@@ -1,5 +1,3 @@
-/*
-define(function(require, exports, module) {
 var Range = require("ace/range").Range;
 var dom = require("ace/lib/dom");
 var shortcuts = require("ace/ext/menu_tools/get_editor_keyboard_shortcuts");
@@ -191,5 +189,3 @@ class ListBox extends Box {
 }
 
 exports.ListBox = ListBox;
-
-});*/

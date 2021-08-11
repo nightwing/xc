@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var lib = require("layout/lib");
 var oop = require("ace/lib/oop");
@@ -345,4 +344,3 @@ class TabManager {
 oop.implement(TabManager.prototype, EventEmitter);
 
 exports.TabManager = TabManager
-});

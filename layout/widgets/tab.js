@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 var lib = require("layout/lib");
 dom.importCssString(require("ace/requirejs/text!layout/styles/tab.css"), "tab.css");
@@ -857,4 +856,3 @@ exports.Tab = Tab;
 exports.TabBar = TabBar;
 exports.Panel = Panel;
 exports.PanelBar = PanelBar;
-});

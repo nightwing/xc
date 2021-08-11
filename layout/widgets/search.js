@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 var dom = require("ace/lib/dom");
 
 class SettingsSearchBox {
@@ -144,4 +143,3 @@ class SettingsSearchBox {
 }
 
 exports.SettingsSearchBox = SettingsSearchBox;
-});
